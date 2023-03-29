@@ -1,3 +1,3 @@
-# mini-project
+# Sample React Application
 
 ## Test commit

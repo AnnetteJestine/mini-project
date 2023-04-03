@@ -8,12 +8,15 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 
 const theme = createTheme();
 
 export default function Login() {
   const nav = useNavigate();
+  const dispatch = useDispatch();
+  const { isLoggedIn } = useSelector((state) => state.login);
   const [form, setForm] = useState({
     email: "",
     password: "",
@@ -27,13 +30,16 @@ export default function Login() {
   const handleSubmit = (event) => {
     event.preventDefault();
     if (form.email === "test@gmail.com" && form.password === "12345") {
+      dispatch({ type: "SET_LOGIN" });
       nav("/");
     } else {
       alert("Login error");
     }
   };
 
-  return (
+  return isLoggedIn ? (
+    <Navigate to="/" />
+  ) : (
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
         <CssBaseline />

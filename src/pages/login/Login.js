@@ -10,6 +10,7 @@ import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { Navigate, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import { setLogin } from "../../store/actions/login-action";
 
 const theme = createTheme();
 
@@ -30,7 +31,13 @@ export default function Login() {
   const handleSubmit = (event) => {
     event.preventDefault();
     if (form.email === "test@gmail.com" && form.password === "12345") {
-      dispatch({ type: "SET_LOGIN" });
+      const loggedUser = {
+        name: "David",
+        state: "Kerala",
+        country: "India",
+      };
+      const token = "bfebf8437tr2034r3y2hf34r";
+      dispatch(setLogin({ loggedUser, token }));
       nav("/");
     } else {
       alert("Login error");

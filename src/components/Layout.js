@@ -22,6 +22,7 @@ import { Navigate, Outlet, useNavigate } from "react-router-dom";
 import { Avatar, Menu, MenuItem, Tooltip } from "@mui/material";
 import { Logout, Settings } from "@mui/icons-material";
 import { useDispatch, useSelector } from "react-redux";
+import { setLogout } from "../store/actions/login-action";
 
 const drawerWidth = 240;
 
@@ -74,7 +75,7 @@ const mdTheme = createTheme();
 function Layout() {
   const nav = useNavigate();
   const dispatch = useDispatch();
-  const { isLoggedIn } = useSelector((state) => state.login);
+  const { isLoggedIn, loggedUser } = useSelector((state) => state.login);
   const [open, setOpen] = React.useState(true);
   const [anchorEl, setAnchorEl] = React.useState(null);
   const menuOpen = Boolean(anchorEl);
@@ -90,7 +91,7 @@ function Layout() {
   };
 
   const onLogoutClick = () => {
-    dispatch({ type: "SET_LOGOUT" });
+    dispatch(setLogout());
     handleClose();
     nav("/login");
   };
@@ -134,7 +135,9 @@ function Layout() {
                 aria-haspopup="true"
                 aria-expanded={open ? "true" : undefined}
               >
-                <Avatar sx={{ width: 32, height: 32 }}>M</Avatar>
+                <Avatar sx={{ width: 32, height: 32 }}>
+                  {loggedUser.name[0]}
+                </Avatar>
               </IconButton>
             </Tooltip>
             <Menu

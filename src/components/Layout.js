@@ -18,7 +18,7 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import DashboardIcon from "@mui/icons-material/Dashboard";
-import { Navigate, Outlet, useNavigate } from "react-router-dom";
+import { Link, Navigate, Outlet, useNavigate } from "react-router-dom";
 import { Avatar, Menu, MenuItem, Tooltip } from "@mui/material";
 import { Logout, Settings } from "@mui/icons-material";
 import { useDispatch, useSelector } from "react-redux";
@@ -205,12 +205,14 @@ function Layout() {
           </Toolbar>
           <Divider />
           <List component="nav">
-            <ListItemButton>
-              <ListItemIcon>
-                <DashboardIcon />
-              </ListItemIcon>
-              <ListItemText primary="Dashboard" />
-            </ListItemButton>
+            <Link to="/">
+              <ListItemButton>
+                <ListItemIcon>
+                  <DashboardIcon />
+                </ListItemIcon>
+                <ListItemText primary="Posts" />
+              </ListItemButton>
+            </Link>
           </List>
         </Drawer>
         <Box

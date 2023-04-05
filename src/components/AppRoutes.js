@@ -4,6 +4,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 const Login = React.lazy(() => import("../pages/login/Login"));
 const Layout = React.lazy(() => import("./Layout"));
 const Posts = React.lazy(() => import("../pages/posts/Posts"));
+const PostDetails = React.lazy(() => import("../pages/posts/PostDetails"));
 
 const routers = createBrowserRouter([
   {
@@ -13,6 +14,10 @@ const routers = createBrowserRouter([
       {
         index: true,
         element: <Posts />,
+      },
+      {
+        path: "post/:id",
+        element: <PostDetails />,
       },
     ],
   },

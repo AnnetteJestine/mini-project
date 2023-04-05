@@ -1,5 +1,6 @@
 import { Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { getPosts } from "../../services/posts-service";
 
 const Posts = () => {
@@ -21,24 +22,18 @@ const Posts = () => {
         Posts
       </Typography>
       {posts.map((item) => (
-        <div key={item.id}>
-          <Typography
-            component="h3"
-            variant="h6"
-            color="inherit"
-            noWrap
-            sx={{ flexGrow: 1 }}
-          >
-            {item.title}
-          </Typography>
-          <Typography
-            component="body1"
-            color="inherit"
-            noWrap
-            sx={{ flexGrow: 1 }}
-          >
-            {item.body}
-          </Typography>
+        <div key={item.id} style={{ padding: "10px 0" }}>
+          <Link to={`/post/${item.id}`}>
+            <Typography
+              component="h3"
+              variant="h6"
+              color="inherit"
+              noWrap
+              sx={{ flexGrow: 1 }}
+            >
+              {item.title}
+            </Typography>
+          </Link>
         </div>
       ))}
     </div>

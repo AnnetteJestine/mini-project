@@ -208,16 +208,22 @@ function Layout() {
           </Toolbar>
           <Divider />
           <List component="nav">
-            <Link to="/">
+            <Link to="/"/>
               <ListItemButton>
                 <ListItemIcon>
                   <DashboardIcon />
                 </ListItemIcon>
-                <ListItemText primary="Posts" />
-              </ListItemButton>
-            </Link>
+                <ListItemText primary="Posts"/>
+                </ListItemButton>
+                <ListItemButton>
+                  <ListItemIcon>
+                    <DashboardIcon/>
+                  </ListItemIcon>
+                  <ListItemText primary="Comment"/>
+                </ListItemButton>
+                
           </List>
-        </Drawer>
+          </Drawer>    
         <Box
           component="main"
           sx={{

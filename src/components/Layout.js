@@ -91,6 +91,9 @@ function Layout() {
   };
 
   const onLogoutClick = () => {
+    localStorage.removeItem("isLoggedIn");
+    localStorage.removeItem("loggedUser");
+    localStorage.removeItem("token");
     dispatch(setLogout());
     handleClose();
     nav("/login");

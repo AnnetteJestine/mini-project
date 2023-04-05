@@ -1,6 +1,8 @@
 import React, { Suspense } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Loading from "./Loading";
 
+const NotFound = React.lazy(() => import("./NotFound"));
 const Login = React.lazy(() => import("../pages/login/Login"));
 const Layout = React.lazy(() => import("./Layout"));
 const Posts = React.lazy(() => import("../pages/posts/Posts"));
@@ -10,6 +12,7 @@ const routers = createBrowserRouter([
   {
     path: "/",
     element: <Layout />,
+    errorElement: <NotFound />,
     children: [
       {
         index: true,
@@ -29,7 +32,7 @@ const routers = createBrowserRouter([
 
 const AppRoutes = () => {
   return (
-    <Suspense fallback={<p>Loading...</p>}>
+    <Suspense fallback={<Loading />}>
       <RouterProvider router={routers} />
     </Suspense>
   );

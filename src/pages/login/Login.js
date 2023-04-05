@@ -37,6 +37,9 @@ export default function Login() {
         country: "India",
       };
       const token = "bfebf8437tr2034r3y2hf34r";
+      localStorage.setItem("isLoggedIn", true);
+      localStorage.setItem("loggedUser", JSON.stringify(loggedUser));
+      localStorage.setItem("token", token);
       dispatch(setLogin({ loggedUser, token }));
       nav("/");
     } else {

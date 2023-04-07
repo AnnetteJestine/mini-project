@@ -221,7 +221,6 @@ function Layout() {
                   </ListItemIcon>
                   <ListItemText primary="Comment"/>
                 </ListItemButton>
-                
           </List>
           </Drawer>    
         <Box

@@ -2,14 +2,15 @@ import { Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import {getTodoDetails } from "../../services/Todo-service";
+import { green, red } from "@mui/material/colors";
 
 
 const ToDoDetail = () => {
-  const [post, setPost] = useState();
+  const [todo, setTodo] = useState();
   const { id } = useParams();
   useEffect(() => {
     getTodoDetails(id).then((res) => {
-      setPost(res);
+      setTodo(res);
     });
   }, [id]);
 
@@ -22,26 +23,31 @@ const ToDoDetail = () => {
         noWrap
         sx={{ flexGrow: 1 }}
       >
-        Post Details
+        Todo Details
       </Typography>
-      {post && (
-        <div>
+      {todo && (
+        <div style={{display: "flex", flexDirection: "row", alignItems: "center"}}>
           <Typography
             component="h3"
             variant="h6"
             color="inherit"
             noWrap
             sx={{ flexGrow: 1 }}
+            style={{ color: "gray", fontSize: "15px"}}
           >
-            {post.title}
+            {todo.title}
           </Typography>
+          <span>
           <Typography
             component="body1"
             color="inherit"
             sx={{ flexGrow: 1 }}
+            style={{ color: todo.completed?  "green":  "red"}}
           >
-            {post.body}
+            {todo.completed? "Complete": "Yet to start"}
           </Typography>
+          </span>
+          
         </div>
       )}
     </div>

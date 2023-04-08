@@ -23,7 +23,7 @@ const ToDo = () => {
       </Typography>
       {todos.map((item) => (
         <div key={item.id} style={{ padding: "10px 0" }}>
-          <Link to={`/post/${item.id}`}>
+          <Link to={`/todo/${item.id}`}>
             <Typography
               component="h3"
               variant="h6"

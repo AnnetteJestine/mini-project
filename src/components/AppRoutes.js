@@ -10,7 +10,6 @@ const PostDetails = React.lazy(() => import("../pages/posts/PostDetails"));
 const ToDo = React.lazy(() => import("../pages/ToDo/ToDo"));
 const ToDoDetail = React.lazy(() => import("../pages/ToDo/ToDoDetail"));
 
-
 const routers = createBrowserRouter([
   {
     path: "/",
@@ -26,20 +25,17 @@ const routers = createBrowserRouter([
         element: <PostDetails />,
       },
       {
-        index: true,
-        element: <Posts />,
-      },
-      {
-        path: "post/:id",
+        path: "todo",
         element: <ToDo />,
+        
       },
       {
-        index: true,
+        path: "todo/:id",
         element: <ToDoDetail />,
       },
-
     ],
   },
+
   {
     path: "/login",
     element: <Login />,

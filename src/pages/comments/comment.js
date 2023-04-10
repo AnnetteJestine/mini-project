@@ -36,7 +36,6 @@ const Comment = () => {
             >
               {item.name}
             </Typography>
-            
           </Link>
         </div>
       ))}

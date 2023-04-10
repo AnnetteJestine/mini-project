@@ -1,7 +1,7 @@
 import { Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import CommentIcon from '@mui/icons-material/Comment'
+import CommentIcon from "@mui/icons-material/Comment";
 import { getCommentDetails } from "../../services/comment-service";
 
 const CommentDetails = () => {
@@ -23,7 +23,7 @@ const CommentDetails = () => {
         noWrap
         sx={{ flexGrow: 1 }}
       >
-      <CommentIcon/>
+        <CommentIcon />
         Comment Details
       </Typography>
       {comment && (
@@ -32,17 +32,16 @@ const CommentDetails = () => {
             component="h3"
             variant="h6"
             color="inherit"
-           
             noWrap
             sx={{ flexGrow: 1 }}
           >
-           <li>{comment.email}</li>
+            <li>{comment.email}</li>
           </Typography>
           <Typography component="body1" color="inherit" sx={{ flexGrow: 1 }}>
-          <li> {comment.name}</li>
+            <li> {comment.name}</li>
           </Typography>
           <Typography component="body2" color="inherit" sx={{ flexGrow: 1 }}>
-           <li> {comment.body}</li>
+            <li> {comment.body}</li>
           </Typography>
         </div>
       )}

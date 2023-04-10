@@ -20,7 +20,7 @@ import ListItemText from "@mui/material/ListItemText";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import { Link, Navigate, Outlet, useNavigate } from "react-router-dom";
 import { Avatar, Menu, MenuItem, Tooltip } from "@mui/material";
-import { Logout, Settings } from "@mui/icons-material";
+import { DashboardCustomizeRounded, Logout, Settings } from "@mui/icons-material";
 import { useDispatch, useSelector } from "react-redux";
 import { setLogout } from "../store/actions/login-action";
 import CommentIcon from "@mui/icons-material/Comment";
@@ -242,13 +242,12 @@ function Layout() {
                 <ListItemText primary="Photos" />
               </ListItemButton>
             </Link>
-            <Link to="/albums">
+            <Link to="/Albums">
               <ListItemButton>
                 <ListItemIcon>
-                  <CommentIcon />
+                  <DashboardCustomizeRounded />
                 </ListItemIcon>
-
-                <ListItemText primary="albums" />
+                <ListItemText primary="Albums" />
               </ListItemButton>
             </Link>
           </List>

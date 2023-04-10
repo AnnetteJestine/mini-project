@@ -232,8 +232,6 @@ function Layout() {
                 <ListItemText primary="Todos" />
               </ListItemButton>
             </Link>
-          </List>
-          <List component="nav">
             <Link to="/photos">
               <ListItemButton>
                 <ListItemIcon>

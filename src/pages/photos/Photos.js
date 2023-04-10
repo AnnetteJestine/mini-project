@@ -9,7 +9,8 @@ const Photos = () => {
   const [photos, setPhotos] = useState([]);
   useEffect(() => {
     getPhotos().then((res) => {
-      setPhotos(res);
+      const ret = res.slice(0, 20);
+      setPhotos(ret);
     });
   }, []);
   return (
@@ -29,9 +30,9 @@ const Photos = () => {
         cols={4}
         gap={8}
       >
-        {photos.slice(0, 20).map((item) => (
-          <Link to={`/photos/${item.id}`}>
-            <ImageListItem key={item.id}>
+        {photos.map((item) => (
+          <Link key={item.id} to={`/photos/${item.id}`}>
+            <ImageListItem>
               <img
                 srcSet={`${item.thumbnailUrl}?w=161&fit=crop&auto=format&dpr=2 2x`}
                 alt={item.title}

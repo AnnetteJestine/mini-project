@@ -8,7 +8,11 @@ const Layout = React.lazy(() => import("./Layout"));
 const Posts = React.lazy(() => import("../pages/posts/Posts"));
 const PostDetails = React.lazy(() => import("../pages/posts/PostDetails"));
 const Comment = React.lazy(() => import("../pages/comments/comment"));
-const CommentDetails = React.lazy(() => import("../pages/comments/CommentDetails"));
+const CommentDetails = React.lazy(() =>
+  import("../pages/comments/CommentDetails")
+);
+const ToDo = React.lazy(() => import("../pages/ToDo/ToDo"));
+const ToDoDetail = React.lazy(() => import("../pages/ToDo/ToDoDetail"));
 
 const routers = createBrowserRouter([
   {
@@ -25,13 +29,21 @@ const routers = createBrowserRouter([
         element: <PostDetails />,
       },
       {
-        path:"comments",
+        path: "comments",
         element: <Comment />,
       },
       {
-        path:"comments/:id",
-        element:<CommentDetails/>   
-     },
+        path: "comments/:id",
+        element: <CommentDetails />,
+      },
+      {
+        path: "todo",
+        element: <ToDo />,
+      },
+      {
+        path: "todo/:id",
+        element: <ToDoDetail />,
+      },
     ],
   },
   {

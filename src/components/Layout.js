@@ -18,6 +18,7 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import DashboardIcon from "@mui/icons-material/Dashboard";
+import ChecklistIcon from '@mui/icons-material/Checklist';
 import { Link, Navigate, Outlet, useNavigate } from "react-router-dom";
 import { Avatar, Menu, MenuItem, Tooltip } from "@mui/material";
 import { Logout, Settings } from "@mui/icons-material";
@@ -224,6 +225,16 @@ function Layout() {
                 </ListItemIcon>
 
                 <ListItemText primary="Comments" />
+              </ListItemButton>
+            </Link>
+          </List>
+          <List component="nav">
+            <Link to="/todo">
+              <ListItemButton>
+                <ListItemIcon>
+                  <ChecklistIcon />
+                </ListItemIcon>
+                <ListItemText primary="Todos" />
               </ListItemButton>
             </Link>
           </List>

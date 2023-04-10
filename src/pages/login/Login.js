@@ -80,41 +80,38 @@ export default function Login() {
               border-radius="5px"
               box-shadow="0 1px 3px rgba(0,0,0,0.2)"
             >
-              {" "}
-              
-                <TextField
-                  margin="normal"
-                  required
-                  fullWidth
-                  id="email"
-                  label="Email Address"
-                  name="email"
-                  autoComplete="email"
-                  autoFocus
-                  value={form.email}
-                  onChange={changeHandler}
-                />
-                <TextField
-                  margin="normal"
-                  required
-                  fullWidth
-                  name="password"
-                  label="Password"
-                  type="password"
-                  id="password"
-                  value={form.password}
-                  autoComplete="current-password"
-                  onChange={changeHandler}
-                />
-                <Button
-                  type="submit"
-                  fullWidth
-                  variant="contained"
-                  sx={{ mt: 3, mb: 2 }}
-                >
-                  Sign In
-                </Button>{" "}
-            
+              <TextField
+                margin="normal"
+                required
+                fullWidth
+                id="email"
+                label="Email Address"
+                name="email"
+                autoComplete="email"
+                autoFocus
+                value={form.email}
+                onChange={changeHandler}
+              />
+              <TextField
+                margin="normal"
+                required
+                fullWidth
+                name="password"
+                label="Password"
+                type="password"
+                id="password"
+                value={form.password}
+                autoComplete="current-password"
+                onChange={changeHandler}
+              />
+              <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                sx={{ mt: 3, mb: 2 }}
+              >
+                Sign In
+              </Button>{" "}
             </fieldset>
           </Box>
         </Box>

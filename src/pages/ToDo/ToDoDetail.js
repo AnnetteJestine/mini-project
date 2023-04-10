@@ -2,7 +2,6 @@ import { Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import {getTodoDetails } from "../../services/Todo-service";
-import { green, red } from "@mui/material/colors";
 
 
 const ToDoDetail = () => {

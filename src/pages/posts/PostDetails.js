@@ -1,15 +1,19 @@
 import { Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { useAppContext } from "../../components/Context";
 import { getPostDetails } from "../../services/posts-service";
 
 const PostDetails = () => {
   const [post, setPost] = useState();
+  const { updateTitle } = useAppContext();
   const { id } = useParams();
   useEffect(() => {
+    updateTitle("Post Details");
     getPostDetails(id).then((res) => {
       setPost(res);
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
 
   return (
@@ -34,11 +38,7 @@ const PostDetails = () => {
           >
             {post.title}
           </Typography>
-          <Typography
-            component="body1"
-            color="inherit"
-            sx={{ flexGrow: 1 }}
-          >
+          <Typography component="body1" color="inherit" sx={{ flexGrow: 1 }}>
             {post.body}
           </Typography>
         </div>

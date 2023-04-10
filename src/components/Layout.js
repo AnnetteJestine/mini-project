@@ -25,6 +25,7 @@ import { Logout, Settings } from "@mui/icons-material";
 import { useDispatch, useSelector } from "react-redux";
 import { setLogout } from "../store/actions/login-action";
 import CommentIcon from "@mui/icons-material/Comment";
+import { useAppContext } from "./Context";
 const drawerWidth = 240;
 
 const AppBar = styled(MuiAppBar, {
@@ -76,6 +77,8 @@ const mdTheme = createTheme();
 function Layout() {
   const nav = useNavigate();
   const dispatch = useDispatch();
+  const { appTitle } = useAppContext();
+
   const { isLoggedIn, loggedUser } = useSelector((state) => state.login);
   const [open, setOpen] = React.useState(true);
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -125,7 +128,7 @@ function Layout() {
               noWrap
               sx={{ flexGrow: 1 }}
             >
-              Dashboard
+              {appTitle}
             </Typography>
             <Tooltip title="Account settings">
               <IconButton

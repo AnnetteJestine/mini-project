@@ -23,7 +23,7 @@ import { Avatar, Menu, MenuItem, Tooltip } from "@mui/material";
 import { Logout, Settings } from "@mui/icons-material";
 import { useDispatch, useSelector } from "react-redux";
 import { setLogout } from "../store/actions/login-action";
-
+import CommentIcon from "@mui/icons-material/Comment";
 const drawerWidth = 240;
 
 const AppBar = styled(MuiAppBar, {
@@ -207,13 +207,23 @@ function Layout() {
             </IconButton>
           </Toolbar>
           <Divider />
-          <List component="nav">
+
+          <List element="nav">
             <Link to="/">
               <ListItemButton>
                 <ListItemIcon>
                   <DashboardIcon />
                 </ListItemIcon>
                 <ListItemText primary="Posts" />
+              </ListItemButton>
+            </Link>
+            <Link to="/comments">
+              <ListItemButton>
+                <ListItemIcon>
+                  <CommentIcon />
+                </ListItemIcon>
+
+                <ListItemText primary="Comments" />
               </ListItemButton>
             </Link>
           </List>

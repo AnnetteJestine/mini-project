@@ -7,6 +7,8 @@ const Login = React.lazy(() => import("../pages/login/Login"));
 const Layout = React.lazy(() => import("./Layout"));
 const Posts = React.lazy(() => import("../pages/posts/Posts"));
 const PostDetails = React.lazy(() => import("../pages/posts/PostDetails"));
+const Comment = React.lazy(() => import("../pages/comments/comment"));
+const CommentDetails = React.lazy(() => import("../pages/comments/CommentDetails"));
 
 const routers = createBrowserRouter([
   {
@@ -19,9 +21,17 @@ const routers = createBrowserRouter([
         element: <Posts />,
       },
       {
-        path: "post/:id",
+        path: "posts/:id",
         element: <PostDetails />,
       },
+      {
+        path:"comments",
+        element: <Comment />,
+      },
+      {
+        path:"comments/:id",
+        element:<CommentDetails/>   
+     },
     ],
   },
   {

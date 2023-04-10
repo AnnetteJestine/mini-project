@@ -7,7 +7,9 @@ const Posts = () => {
   const [posts, setPosts] = useState([]);
   useEffect(() => {
     getPosts().then((res) => {
+     
       setPosts(res);
+      
     });
   }, []);
   return (

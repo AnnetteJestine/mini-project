@@ -243,6 +243,15 @@ function Layout() {
                 <ListItemText primary="Photos" />
               </ListItemButton>
             </Link>
+            <Link to="/albums">
+              <ListItemButton>
+                <ListItemIcon>
+                  <CommentIcon />
+                </ListItemIcon>
+
+                <ListItemText primary="albums" />
+              </ListItemButton>
+            </Link>
           </List>
         </Drawer>
         <Box

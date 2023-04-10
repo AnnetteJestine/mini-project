@@ -230,7 +230,7 @@ function Layout() {
             <Link to="/todo">
               <ListItemButton>
                 <ListItemIcon>
-                  <ChecklistIcon />
+                  
                 </ListItemIcon>
                 <ListItemText primary="Todos" />
               </ListItemButton>

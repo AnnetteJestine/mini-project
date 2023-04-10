@@ -14,6 +14,8 @@ const CommentDetails = React.lazy(() =>
 const ToDo = React.lazy(() => import("../pages/ToDo/ToDo"));
 const ToDoDetail = React.lazy(() => import("../pages/ToDo/ToDoDetail"));
 
+const Photodetails = React.lazy(() => import("../pages/photos/Photodetails"));
+const Photos = React.lazy(() => import("../pages/photos/Photos"));
 const routers = createBrowserRouter([
   {
     path: "/",
@@ -43,6 +45,11 @@ const routers = createBrowserRouter([
       {
         path: "todo/:id",
         element: <ToDoDetail />,
+      },
+      { path: "photos", element: <Photos /> },
+      {
+        path: "photos/:id",
+        element: <Photodetails />,
       },
     ],
   },

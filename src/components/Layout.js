@@ -92,9 +92,6 @@ function Layout() {
   };
 
   const onLogoutClick = () => {
-    localStorage.removeItem("isLoggedIn");
-    localStorage.removeItem("loggedUser");
-    localStorage.removeItem("token");
     dispatch(setLogout());
     handleClose();
     nav("/login");
@@ -233,6 +230,16 @@ function Layout() {
                   <ChecklistIcon />
                 </ListItemIcon>
                 <ListItemText primary="Todos" />
+              </ListItemButton>
+            </Link>
+          </List>
+          <List component="nav">
+            <Link to="/photos">
+              <ListItemButton>
+                <ListItemIcon>
+                  <DashboardIcon />
+                </ListItemIcon>
+                <ListItemText primary="Photos" />
               </ListItemButton>
             </Link>
           </List>

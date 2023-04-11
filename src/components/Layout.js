@@ -23,7 +23,7 @@ import { Avatar, Menu, MenuItem, Tooltip } from "@mui/material";
 import { Logout, Settings } from "@mui/icons-material";
 import { useDispatch, useSelector } from "react-redux";
 import { setLogout } from "../store/actions/login-action";
-
+import PhotoLibraryIcon from '@mui/icons-material/PhotoLibrary';
 const drawerWidth = 240;
 
 const AppBar = styled(MuiAppBar, {
@@ -218,7 +218,7 @@ function Layout() {
             <Link to="/photos">
               <ListItemButton>
                 <ListItemIcon>
-                  <DashboardIcon />
+                  <PhotoLibraryIcon/>
                 </ListItemIcon>
                 <ListItemText primary="Photos" />
               </ListItemButton>

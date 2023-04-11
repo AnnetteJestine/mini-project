@@ -47,20 +47,20 @@ const CommentDetails = () => {
                 {comment.email}
               </li>
             </Typography>
-            <Typography component="body1" color="inherit" sx={{ flexGrow: 1 }}>
+            <Typography variant="body1" color="inherit" sx={{ flexGrow: 1 }}>
               <li>
                 <Face2Icon /> {comment.name}
               </li>
             </Typography>
           </fieldset>
-          <Typography component="body2" color="inherit" sx={{ flexGrow: 1 }}>
-            <fieldset>
+          <fieldset>
+            <Typography variant="body1" color="inherit" sx={{ flexGrow: 1 }}>
               <li>
                 <ModeCommentIcon />
                 {comment.body}
               </li>
-            </fieldset>
-          </Typography>
+            </Typography>
+          </fieldset>
         </div>
       )}
     </div>

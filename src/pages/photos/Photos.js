@@ -4,14 +4,18 @@ import ImageListItem from "@mui/material/ImageListItem";
 import { Typography } from "@mui/material";
 import { getPhotos } from "../../services/photos-services";
 import { Link } from "react-router-dom";
+import { useAppContext } from "../../components/Context";
 
 const Photos = () => {
+  const { updateTitle } = useAppContext();
   const [photos, setPhotos] = useState([]);
   useEffect(() => {
+    updateTitle("Photos");
     getPhotos().then((res) => {
       const ret = res.slice(0, 20);
       setPhotos(ret);
     });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
     <div>

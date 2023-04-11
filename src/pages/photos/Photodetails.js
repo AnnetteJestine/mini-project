@@ -3,11 +3,14 @@ import Box from "@mui/material/Box";
 import { useParams } from "react-router-dom";
 import { getPhotoDetails } from "../../services/photos-services";
 import { Skeleton, Typography } from "@mui/material";
+import { useAppContext } from "../../components/Context";
 
 const Photodetails = () => {
+  const { updateTitle } = useAppContext();
   const [photo, setPhoto] = useState();
   const { id } = useParams();
   useEffect(() => {
+    updateTitle("Photo Details");
     getPhotoDetails(id).then((res) => {
       setPhoto(res);
     });

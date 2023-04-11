@@ -2,12 +2,17 @@ import { Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import {getTodoDetails } from "../../services/Todo-service";
+import { useAppContext } from "../../components/Context";
 
 
 const ToDoDetail = () => {
   const [todo, setTodo] = useState();
   const { id } = useParams();
+  const { updateTitle } = useAppContext();
+                
   useEffect(() => {
+    updateTitle("Todo Details");
+
     getTodoDetails(id).then((res) => {
       setTodo(res);
     });

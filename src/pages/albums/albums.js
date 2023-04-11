@@ -1,17 +1,16 @@
 import { Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { getComments } from "../../services/comment-service";
-import CommentIcon from "@mui/icons-material/Comment";
 import { useAppContext } from "../../components/Context";
+import { getAlbums } from "../../services/albums-service";
 
-const Comment = () => {
-  const [comment, setComments] = useState([]);
+const Albums = () => {
+  const [Albums, setAlbums] = useState([]);
   const { updateTitle } = useAppContext();
   useEffect(() => {
-    updateTitle("Comments");
-    getComments().then((res) => {
-      setComments(res);
+    updateTitle("Albums");
+    getAlbums().then((res) => {
+      setAlbums(res);
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -20,17 +19,15 @@ const Comment = () => {
       <Typography
         component="h1"
         variant="h5"
-        color="Blue"
-        align="center"
+        color="inherit"
         noWrap
         sx={{ flexGrow: 1 }}
       >
-        <CommentIcon />
-        Comments
+        Albums
       </Typography>
-      {comment.map((item) => (
+      {Albums.map((item) => (
         <div key={item.id} style={{ padding: "10px 0" }}>
-          <Link to={`/comments/${item.id}`}>
+          <Link to={`/albums/${item.id}`}>
             <Typography
               component="h3"
               variant="h6"
@@ -38,7 +35,7 @@ const Comment = () => {
               noWrap
               sx={{ flexGrow: 1 }}
             >
-              {item.name}
+              {item.title}
             </Typography>
           </Link>
         </div>
@@ -47,4 +44,4 @@ const Comment = () => {
   );
 };
 
-export default Comment;
+export default Albums;

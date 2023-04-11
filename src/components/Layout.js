@@ -22,7 +22,11 @@ import ChecklistIcon from "@mui/icons-material/Checklist";
 import PhotoLibraryIcon from "@mui/icons-material/PhotoLibrary";
 import { Link, Navigate, Outlet, useNavigate } from "react-router-dom";
 import { Avatar, Menu, MenuItem, Tooltip } from "@mui/material";
-import { Logout, Settings } from "@mui/icons-material";
+import {
+  DashboardCustomizeRounded,
+  Logout,
+  Settings,
+} from "@mui/icons-material";
 import { useDispatch, useSelector } from "react-redux";
 import { setLogout } from "../store/actions/login-action";
 import CommentIcon from "@mui/icons-material/Comment";
@@ -224,7 +228,6 @@ function Layout() {
                 <ListItemIcon>
                   <CommentIcon />
                 </ListItemIcon>
-
                 <ListItemText primary="Comments" />
               </ListItemButton>
             </Link>
@@ -242,6 +245,14 @@ function Layout() {
                   <PhotoLibraryIcon />
                 </ListItemIcon>
                 <ListItemText primary="Photos" />
+              </ListItemButton>
+            </Link>
+            <Link to="/albums">
+              <ListItemButton>
+                <ListItemIcon>
+                  <DashboardCustomizeRounded />
+                </ListItemIcon>
+                <ListItemText primary="Albums" />
               </ListItemButton>
             </Link>
           </List>

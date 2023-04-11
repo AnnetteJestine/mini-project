@@ -16,6 +16,10 @@ const ToDoDetail = React.lazy(() => import("../pages/ToDo/ToDoDetail"));
 
 const Photodetails = React.lazy(() => import("../pages/photos/Photodetails"));
 const Photos = React.lazy(() => import("../pages/photos/Photos"));
+
+const AlbumsDetails= React.lazy(() => import("../pages/albums/albumsdetails"));
+const Albums = React.lazy(() => import("../pages/albums/albums"));
+
 const routers = createBrowserRouter([
   {
     path: "/",
@@ -51,6 +55,13 @@ const routers = createBrowserRouter([
         path: "photos/:id",
         element: <Photodetails />,
       },
+
+      { path: "albums", element: <Albums /> },
+      {
+        path: "albums/:id",
+        element: <AlbumsDetails />,
+      },
+
     ],
   },
   {

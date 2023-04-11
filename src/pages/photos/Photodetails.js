@@ -3,7 +3,7 @@ import Box from "@mui/material/Box";
 import { useParams } from "react-router-dom";
 import { getPhotoDetails } from "../../services/photos-services";
 import { Typography } from "@mui/material";
-
+import Skeleton from "@mui/material/Skeleton";
 const Photodetails = () => {
   const [photo, setPhoto] = useState();
   const { id } = useParams();
@@ -13,11 +13,11 @@ const Photodetails = () => {
       setPhoto(res);
       console.log({ photo });
     });
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
   return (
     <div>
-      {photo && (
+      {photo ? (
         <div>
           <Typography
             component="h1"
@@ -29,6 +29,7 @@ const Photodetails = () => {
           >
             {photo.title}
           </Typography>
+
           <Box
             component="img"
             sx={{
@@ -41,7 +42,20 @@ const Photodetails = () => {
             src={`${photo.url}`}
           />
         </div>
+      ) : (
+        <div>
+          <Skeleton variant="rectangular" />
+          <Skeleton
+            style={{
+              marginTop:3,
+              width: 400,
+              height: 300,
+            }}
+            variant="rectangular"
+          />
+        </div>
       )}
+      ;
     </div>
   );
 };

@@ -13,6 +13,7 @@ const Comment = () => {
     getComments().then((res) => {
       setComments(res);
     });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
     <div>
@@ -24,8 +25,8 @@ const Comment = () => {
         noWrap
         sx={{ flexGrow: 1 }}
       >
-        <CommentIcon />
-        Comments
+        <u><CommentIcon />
+        Comments</u>
       </Typography>
       {comment.map((item) => (
         <div key={item.id} style={{ padding: "10px 0" }}>

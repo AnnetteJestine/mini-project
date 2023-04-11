@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Box from "@mui/material/Box";
 import { useParams } from "react-router-dom";
 import { getPhotoDetails } from "../../services/photos-services";
-import { Typography } from "@mui/material";
+import { Skeleton, Typography } from "@mui/material";
 
 const Photodetails = () => {
   const [photo, setPhoto] = useState();
@@ -15,7 +15,7 @@ const Photodetails = () => {
   }, [id]);
   return (
     <div>
-      {photo && (
+      {photo ? (
         <div>
           <Typography
             component="h1"
@@ -42,7 +42,20 @@ const Photodetails = () => {
             />
           </div>
         </div>
+      ) : (
+        <div>
+          <Skeleton variant="rectangular" />
+          <Skeleton
+            style={{
+              marginTop: 3,
+              width: 400,
+              height: 300,
+            }}
+            variant="rectangular"
+          />
+        </div>
       )}
+      ;
     </div>
   );
 };

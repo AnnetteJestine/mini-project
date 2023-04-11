@@ -19,6 +19,7 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import ChecklistIcon from "@mui/icons-material/Checklist";
+import PhotoLibraryIcon from "@mui/icons-material/PhotoLibrary";
 import { Link, Navigate, Outlet, useNavigate } from "react-router-dom";
 import { Avatar, Menu, MenuItem, Tooltip } from "@mui/material";
 import { Logout, Settings } from "@mui/icons-material";
@@ -238,7 +239,7 @@ function Layout() {
             <Link to="/photos">
               <ListItemButton>
                 <ListItemIcon>
-                  <DashboardIcon />
+                  <PhotoLibraryIcon />
                 </ListItemIcon>
                 <ListItemText primary="Photos" />
               </ListItemButton>

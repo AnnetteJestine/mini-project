@@ -1,8 +1,8 @@
 import { Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import DashboardCustomizeRounded from "@mui/icons-material/Albums";
-import { getAlbumsDetails } from "../../services/Albums-service";
+import PhotoAlbumIcon from '@mui/icons-material/PhotoAlbum';
+import { getAlbumsDetails } from "../../services/albums-service";
 
 const AlbumsDetails = () => {
   const [Albums, setAlbums] = useState();
@@ -23,7 +23,7 @@ const AlbumsDetails = () => {
         noWrap
         sx={{ flexGrow: 1 }}
       >
-        <DashboardCustomizeRounded/>
+        <PhotoAlbumIcon/>
         Albums Details
       </Typography>
       {Albums && (

@@ -2,7 +2,7 @@ import { Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useAppContext } from "../../components/Context";
-import { getAlbums } from "../../services/Albums-service";
+import { getAlbums } from "../../services/albums-service";
 
 const Albums = () => {
   const [Albums, setAlbums] = useState([]);
@@ -27,7 +27,7 @@ const Albums = () => {
       </Typography>
       {Albums.map((item) => (
         <div key={item.id} style={{ padding: "10px 0" }}>
-          <Link to={`/Albums/${item.id}`}>
+          <Link to={`/albums/${item.id}`}>
             <Typography
               component="h3"
               variant="h6"

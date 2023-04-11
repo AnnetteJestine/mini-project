@@ -1,17 +1,20 @@
+import React, { useEffect } from "react";
 import { Typography } from "@mui/material";
-import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { useAppContext } from "../../components/Context";
-import { getPosts } from "../../services/posts-service";
+import { setPostsAction } from "../../store/actions/post-action";
 
 const Posts = () => {
-  const [posts, setPosts] = useState([]);
   const { updateTitle } = useAppContext();
+  const dispatch = useDispatch();
+  const { posts } = useSelector((state) => state.post);
+
   useEffect(() => {
     updateTitle("Posts");
-    getPosts().then((res) => {
-      setPosts(res);
-    });
+    if (!posts.length) {
+      dispatch(setPostsAction());
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (

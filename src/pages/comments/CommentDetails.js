@@ -1,33 +1,32 @@
 import { Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { useAppContext } from "../../components/Context";
-import { getPostDetails } from "../../services/posts-service";
+import CommentIcon from "@mui/icons-material/Comment";
+import { getCommentDetails } from "../../services/comment-service";
 
-const PostDetails = () => {
-  const [post, setPost] = useState();
-  const { updateTitle } = useAppContext();
+const CommentDetails = () => {
+  const [comment, setComment] = useState();
   const { id } = useParams();
   useEffect(() => {
-    updateTitle("Post Details");
-    getPostDetails(id).then((res) => {
-      setPost(res);
+    getCommentDetails(id).then((res) => {
+      setComment(res);
     });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
 
   return (
     <div>
       <Typography
-        component="h1"
+        component="h4"
         variant="h5"
         color="inherit"
+        align="center"
         noWrap
         sx={{ flexGrow: 1 }}
       >
-        Post Details
+        <CommentIcon />
+        Comment Details
       </Typography>
-      {post && (
+      {comment && (
         <div>
           <Typography
             component="h3"
@@ -36,10 +35,13 @@ const PostDetails = () => {
             noWrap
             sx={{ flexGrow: 1 }}
           >
-            {post.title}
+            <li>{comment.email}</li>
           </Typography>
           <Typography component="body1" color="inherit" sx={{ flexGrow: 1 }}>
-            {post.body}
+            <li> {comment.name}</li>
+          </Typography>
+          <Typography component="body2" color="inherit" sx={{ flexGrow: 1 }}>
+            <li> {comment.body}</li>
           </Typography>
         </div>
       )}
@@ -47,4 +49,4 @@ const PostDetails = () => {
   );
 };
 
-export default PostDetails;
+export default CommentDetails;

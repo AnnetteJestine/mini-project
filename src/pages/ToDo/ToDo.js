@@ -1,18 +1,14 @@
 import { Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { useAppContext } from "../../components/Context";
-import { getPosts } from "../../services/posts-service";
+import { getTodos } from "../../services/Todo-service";
 
-const Posts = () => {
-  const [posts, setPosts] = useState([]);
-  const { updateTitle } = useAppContext();
+const ToDo = () => {
+  const [todos, setTodos] = useState([]);
   useEffect(() => {
-    updateTitle("Posts");
-    getPosts().then((res) => {
-      setPosts(res);
+    getTodos().then((res) => {
+      setTodos(res);
     });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
     <div>
@@ -23,11 +19,11 @@ const Posts = () => {
         noWrap
         sx={{ flexGrow: 1 }}
       >
-        Posts
+        Todos
       </Typography>
-      {posts.map((item) => (
+      {todos.map((item) => (
         <div key={item.id} style={{ padding: "10px 0" }}>
-          <Link to={`/posts/${item.id}`}>
+          <Link to={`/todo/${item.id}`}>
             <Typography
               component="h3"
               variant="h6"
@@ -44,4 +40,4 @@ const Posts = () => {
   );
 };
 
-export default Posts;
+export default ToDo;

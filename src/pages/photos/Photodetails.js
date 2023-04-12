@@ -7,11 +7,9 @@ import Skeleton from "@mui/material/Skeleton";
 const Photodetails = () => {
   const [photo, setPhoto] = useState();
   const { id } = useParams();
-  console.log(id);
   useEffect(() => {
     getPhotoDetails(id).then((res) => {
       setPhoto(res);
-      console.log({ photo });
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
@@ -29,18 +27,20 @@ const Photodetails = () => {
           >
             {photo.title}
           </Typography>
-
-          <Box
-            component="img"
-            sx={{
-              height: 600,
-              width: 600,
-              maxHeight: { xs: 400, md: 350 },
-              maxWidth: { xs: 300, md: 350 },
-            }}
-            alt={photo.title}
-            src={`${photo.url}`}
-          />
+          <div style={{ display: "flex", justifyContent: "center" }}>
+            <Box
+              component="img"
+              sx={{
+                height: 600,
+                width: 600,
+                maxHeight: { xs: 400, md: 350 },
+                maxWidth: { xs: 300, md: 350 },
+              }}
+              alignItems="center"
+              alt={photo.title}
+              src={`${photo.url}`}
+            />
+          </div>
         </div>
       ) : (
         <div>

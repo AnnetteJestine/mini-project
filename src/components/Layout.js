@@ -18,12 +18,15 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import DashboardIcon from "@mui/icons-material/Dashboard";
+import ChecklistIcon from "@mui/icons-material/Checklist";
 import { Link, Navigate, Outlet, useNavigate } from "react-router-dom";
 import { Avatar, Menu, MenuItem, Tooltip } from "@mui/material";
 import { Logout, Settings } from "@mui/icons-material";
 import { useDispatch, useSelector } from "react-redux";
 import { setLogout } from "../store/actions/login-action";
 import PhotoLibraryIcon from '@mui/icons-material/PhotoLibrary';
+import CommentIcon from "@mui/icons-material/Comment";
+import { useAppContext } from "./Context";
 const drawerWidth = 240;
 
 const AppBar = styled(MuiAppBar, {
@@ -75,6 +78,8 @@ const mdTheme = createTheme();
 function Layout() {
   const nav = useNavigate();
   const dispatch = useDispatch();
+  const { appTitle } = useAppContext();
+
   const { isLoggedIn, loggedUser } = useSelector((state) => state.login);
   const [open, setOpen] = React.useState(true);
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -124,7 +129,7 @@ function Layout() {
               noWrap
               sx={{ flexGrow: 1 }}
             >
-              Dashboard
+              {appTitle}
             </Typography>
             <Tooltip title="Account settings">
               <IconButton
@@ -204,7 +209,8 @@ function Layout() {
             </IconButton>
           </Toolbar>
           <Divider />
-          <List component="nav">
+
+          <List element="nav">
             <Link to="/">
               <ListItemButton>
                 <ListItemIcon>
@@ -213,8 +219,23 @@ function Layout() {
                 <ListItemText primary="Posts" />
               </ListItemButton>
             </Link>
-          </List>
-          <List component="nav">
+            <Link to="/comments">
+              <ListItemButton>
+                <ListItemIcon>
+                  <CommentIcon />
+                </ListItemIcon>
+
+                <ListItemText primary="Comments" />
+              </ListItemButton>
+            </Link>
+            <Link to="/todo">
+              <ListItemButton>
+                <ListItemIcon>
+                  <ChecklistIcon />
+                </ListItemIcon>
+                <ListItemText primary="Todos" />
+              </ListItemButton>
+            </Link>
             <Link to="/photos">
               <ListItemButton>
                 <ListItemIcon>

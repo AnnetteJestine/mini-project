@@ -32,7 +32,7 @@ export default function Login() {
     event.preventDefault();
     if (form.email === "test@gmail.com" && form.password === "12345") {
       const loggedUser = {
-        name: "David",
+        name: "Annette",
         state: "Kerala",
         country: "India",
       };
@@ -73,38 +73,46 @@ export default function Login() {
             noValidate
             sx={{ mt: 1 }}
           >
-            <TextField
-              margin="normal"
-              required
-              fullWidth
-              id="email"
-              label="Email Address"
-              name="email"
-              autoComplete="email"
-              autoFocus
-              value={form.email}
-              onChange={changeHandler}
-            />
-            <TextField
-              margin="normal"
-              required
-              fullWidth
-              name="password"
-              label="Password"
-              type="password"
-              id="password"
-              value={form.password}
-              autoComplete="current-password"
-              onChange={changeHandler}
-            />
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              sx={{ mt: 3, mb: 2 }}
+            <fieldset
+              margin="0"
+              background-color="#fff"
+              border="1"
+              border-radius="5px"
+              box-shadow="0 1px 3px rgba(0,0,0,0.2)"
             >
-              Sign In
-            </Button>
+              <TextField
+                margin="normal"
+                required
+                fullWidth
+                id="email"
+                label="Email Address"
+                name="email"
+                autoComplete="email"
+                autoFocus
+                value={form.email}
+                onChange={changeHandler}
+              />
+              <TextField
+                margin="normal"
+                required
+                fullWidth
+                name="password"
+                label="Password"
+                type="password"
+                id="password"
+                value={form.password}
+                autoComplete="current-password"
+                onChange={changeHandler}
+              />
+              <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                sx={{ mt: 3, mb: 2 }}
+              >
+                Sign In
+              </Button>{" "}
+            </fieldset>
           </Box>
         </Box>
       </Container>

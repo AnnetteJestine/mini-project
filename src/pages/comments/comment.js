@@ -1,18 +1,15 @@
 import { Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { useAppContext } from "../../components/Context";
-import { getPosts } from "../../services/posts-service";
+import { getComments } from "../../services/comment-service";
+import CommentIcon from "@mui/icons-material/Comment";
 
-const Posts = () => {
-  const [posts, setPosts] = useState([]);
-  const { updateTitle } = useAppContext();
+const Comment = () => {
+  const [comment, setComments] = useState([]);
   useEffect(() => {
-    updateTitle("Posts");
-    getPosts().then((res) => {
-      setPosts(res);
+    getComments().then((res) => {
+      setComments(res);
     });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
     <div>
@@ -20,14 +17,16 @@ const Posts = () => {
         component="h1"
         variant="h5"
         color="inherit"
+        align="center"
         noWrap
         sx={{ flexGrow: 1 }}
       >
-        Posts
+        <CommentIcon />
+        Comments
       </Typography>
-      {posts.map((item) => (
+      {comment.map((item) => (
         <div key={item.id} style={{ padding: "10px 0" }}>
-          <Link to={`/posts/${item.id}`}>
+          <Link to={`/comments/${item.id}`}>
             <Typography
               component="h3"
               variant="h6"
@@ -35,7 +34,7 @@ const Posts = () => {
               noWrap
               sx={{ flexGrow: 1 }}
             >
-              {item.title}
+              {item.name}
             </Typography>
           </Link>
         </div>
@@ -44,4 +43,4 @@ const Posts = () => {
   );
 };
 
-export default Posts;
+export default Comment;

@@ -7,13 +7,13 @@ import { useAppContext } from "../../components/Context";
 
 const Comment = () => {
   const [comment, setComments] = useState([]);
-  const{updateTitle}=useAppContext();
+  const { updateTitle } = useAppContext();
   useEffect(() => {
     updateTitle("Comment");
     getComments().then((res) => {
       setComments(res);
     });
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
     <div>
@@ -25,8 +25,10 @@ const Comment = () => {
         noWrap
         sx={{ flexGrow: 1 }}
       >
-        <u><CommentIcon />
-        Comments</u>
+        <u>
+          <CommentIcon />
+          Comments
+        </u>
       </Typography>
       {comment.map((item) => (
         <div key={item.id} style={{ padding: "10px 0" }}>

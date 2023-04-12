@@ -4,18 +4,19 @@ import { useParams } from "react-router-dom";
 import CommentIcon from "@mui/icons-material/Comment";
 import { getCommentDetails } from "../../services/comment-service";
 import { useAppContext } from "../../components/Context";
-import Face2Icon from '@mui/icons-material/Face2';
-import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
-import ModeCommentIcon from '@mui/icons-material/ModeComment';
+import Face2Icon from "@mui/icons-material/Face2";
+import AlternateEmailIcon from "@mui/icons-material/AlternateEmail";
+import ModeCommentIcon from "@mui/icons-material/ModeComment";
 const CommentDetails = () => {
   const [comment, setComment] = useState();
-  const{updateTitle}=useAppContext();
+  const { updateTitle } = useAppContext();
   const { id } = useParams();
   useEffect(() => {
-    updateTitle("Comment Details")
+    updateTitle("Comment Details");
     getCommentDetails(id).then((res) => {
       setComment(res);
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
 
   return (
@@ -34,20 +35,31 @@ const CommentDetails = () => {
       {comment && (
         <div>
           <fieldset>
-          <Typography
-            component="h3"
-            variant="h6"
-            color="inherit"
-            noWrap
-            sx={{ flexGrow: 1 }}
-          >
-           <li><AlternateEmailIcon/>{comment.email}</li>
-          </Typography>
-          <Typography component="body1" color="inherit" sx={{ flexGrow: 1 }}>
-            <li><Face2Icon/> {comment.name}</li>
-          </Typography></fieldset>
+            <Typography
+              component="h3"
+              variant="h6"
+              color="inherit"
+              noWrap
+              sx={{ flexGrow: 1 }}
+            >
+              <li>
+                <AlternateEmailIcon />
+                {comment.email}
+              </li>
+            </Typography>
+            <Typography component="body1" color="inherit" sx={{ flexGrow: 1 }}>
+              <li>
+                <Face2Icon /> {comment.name}
+              </li>
+            </Typography>
+          </fieldset>
           <Typography component="body2" color="inherit" sx={{ flexGrow: 1 }}>
-            <fieldset><li><ModeCommentIcon/>{comment.body}</li></fieldset>
+            <fieldset>
+              <li>
+                <ModeCommentIcon />
+                {comment.body}
+              </li>
+            </fieldset>
           </Typography>
         </div>
       )}
